@@ -1,0 +1,9 @@
+body {
+    background-image: url(../../assets/images/theater.png);
+    background-color: darkred;
+}
+
+.page-header {
+    color: gold;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
