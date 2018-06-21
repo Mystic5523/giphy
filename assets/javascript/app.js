@@ -1,13 +1,12 @@
 //Variables
-var keyAPI = "api_key=41KGysPWerlj4WWkV9j4sQhwH5Q8OWmZ";
+var keyAPI = "api_key=CPnXUBRAFkbTXdqTNcVpytDRpMkUCw6r";
 var urlAPI = "https://api.giphy.com/v1/gifs/search?";
 var limitAPI = "limit=10";
 var offsetAPI = 0;
-var isGifInfo = "false";
 var btnIndex = 0;
 var userData = {
   newQuery: "",
-  keywords: [
+  movies: [
     "Matrix",
     "Hackers",
     "Iron Man",
@@ -28,13 +27,13 @@ var userData = {
     return newString;
   },
   add(string) {
-    this.keywords.push(string);
+    this.movies.push(string);
   },
 }
 // Build Functions
 function getGifs(index) {
   var a = "&";
-  query = "q=" + userData.convert(userData.keywords[index]);
+  query = "q=" + userData.convert(userData.movies[index]);
   var offset = "offset=" + offsetAPI;
   var queryUrl = urlAPI + query + a + limitAPI + a + offset + a + keyAPI;
   $(".more").remove();
@@ -68,9 +67,9 @@ function getGifs(index) {
   });
 }
 // Main Program Starts Here
-for (var i = 0; i < userData.keywords.length; i++) {
+for (var i = 0; i < userData.movies.length; i++) {
   var newBtn = $("<button>")
-  newBtn.text(userData.keywords[i]);
+  newBtn.text(userData.movies[i]);
   newBtn.attr("id", "char-" + i);
   newBtn.addClass("char");
   newBtn.attr("style", "margin: 1vh 0.5vw 1vh 0.5vw")
@@ -83,7 +82,7 @@ $(document).ready(function () {
       var hero = $("#search").val().trim();
       if (hero != "") {
         var newBtn = $("<button>").text(hero);
-        newBtn.attr("id", "char-" + userData.keywords.length);
+        newBtn.attr("id", "char-" + userData.movies.length);
         newBtn.attr("style", "margin: 1vh 0.5vw 1vh 0.5vw")
         newBtn.addClass("char");
         $(".btnBanner").append(newBtn);
